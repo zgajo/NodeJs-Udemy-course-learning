@@ -17,8 +17,12 @@ request( {
 			address: body.results[0].formatted_address,
 			location: body.results[0].geometry.location
 		})
-	 }
-	
+	 }	
 })
 
 }
+
+
+//26bedc1d534d3c3b497fe7c2b999399e
+
+//https://api.darksky.net/forecast/26bedc1d534d3c3b497fe7c2b999399e/45.11102,13.7089242
