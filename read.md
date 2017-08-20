@@ -3,3 +3,6 @@ Manipulating with json, storing and reading from files, debugging, REPL, yargs
 
 <h1>Weather app</h1>
 Callbacks, http requests, Axios, Promises
+
+<h1>Testing applications</h1>
+Using Mocha, 'expect' library , supertest with express, describe
