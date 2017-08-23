@@ -6,3 +6,6 @@ Callbacks, http requests, Axios, Promises
 
 <h1>Testing applications</h1>
 Using Mocha, 'expect' library , supertest with express, describe
+
+<h1>ToDO App REST API</h1>
+Connecting and working with MongoDB (Delete, Update, Insert, Find)
