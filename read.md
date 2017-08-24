@@ -9,3 +9,6 @@ Using Mocha, 'expect' library , supertest with express, describe
 
 <h1>ToDO App REST API</h1>
 Connecting and working with MongoDB (Delete, Update, Insert, Find)
+Working with Mongoose (Creating models, using validators)
+Creating Endpoints
+Setting tests (supertests + expect) for POST requests
