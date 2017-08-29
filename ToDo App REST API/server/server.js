@@ -1,3 +1,5 @@
+require('../config/config')
+
 const _ = require('lodash')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -93,7 +95,7 @@ app.patch('/todos/:id', (req, res) => {
 		body.completed = false;
 		body.completed_at = null;
 	}
-	
+
 	Todo.findByIdAndUpdate(
 		id,
 		{ $set: body },
