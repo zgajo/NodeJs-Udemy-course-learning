@@ -11,5 +11,5 @@ Using Mocha, 'expect' library , supertest with express, describe
 Connecting and working with MongoDB (Delete, Update, Insert, Find)<br>
 Working with Mongoose (Creating models, using validators)<br>
 Creating Endpoints<br>
-Setting tests (supertests + expect) for POST and GET requests<br>
+Setting tests (supertests + expect) for POST, DELETE, PATCH, GET requests<br>
 Deployed to Heroku (https://darko-todos.herokuapp.com/todos)
