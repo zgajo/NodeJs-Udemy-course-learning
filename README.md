@@ -13,3 +13,7 @@ Working with Mongoose (Creating models, using validators)<br>
 Creating Endpoints<br>
 Setting tests (supertests + expect) for POST, DELETE, PATCH, GET requests<br>
 Deployed to Heroku (https://darko-todos.herokuapp.com/todos)
+Separated database for test and development
+
+<h1>5. ToDo App Security and Authentication</h1>
+Using JWT tokens, Creating mongoose Schema and Schema methods

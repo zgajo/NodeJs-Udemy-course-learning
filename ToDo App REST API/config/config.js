@@ -1,5 +1,6 @@
 let env = process.env.NODE_ENV || 'development';
-console.log('env ******** ',env )
+// development is not set in package.json
+// Heroku - process.env.NODE_ENV = "production"
 
 if(env === 'development'){
 	process.env.PORT = 3000;
