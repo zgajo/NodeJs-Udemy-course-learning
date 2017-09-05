@@ -16,4 +16,6 @@ Deployed to Heroku (https://darko-todos.herokuapp.com/todos)
 Separated database for test and development
 
 <h1>5. ToDo App Security and Authentication</h1>
-Using JWT tokens, Creating mongoose Schema and Schema methods
+Using JWT tokens, Creating mongoose Schema and Schema methods<br>
+Creating middleware, checking user by token<br>
+Hashing user password before saving<br>
