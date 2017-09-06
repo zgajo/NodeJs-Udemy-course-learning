@@ -19,3 +19,4 @@ Separated database for test and development
 Using JWT tokens, Creating mongoose Schema and Schema methods<br>
 Creating middleware, checking user by token<br>
 Hashing user password before saving<br>
+Destroying token, made tests<br>
