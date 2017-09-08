@@ -20,3 +20,6 @@ Using JWT tokens, Creating mongoose Schema and Schema methods<br>
 Creating middleware, checking user by token<br>
 Hashing user password before saving<br>
 Destroying token, made tests<br>
+
+<h1>6. Realtime web chat</h1>
+Using Socket.io, creating 'emit' and 'on' events<br>
