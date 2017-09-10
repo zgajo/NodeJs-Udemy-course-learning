@@ -13,17 +13,38 @@ let io = socketIO(server)
 app.use(express.static(publicPath))
 
 io.on('connection', (socket)=>{
-	console.log('New user connected')
-
-
+	
+	// Socket.emit sends to specific user
 	socket.emit('newMessage', {
-		from: 'test',
-		text: 'TEst text',
-		createdAt: 123
+		from: 'Admin',
+		text: 'Welcome to chat app'
 	})
 
+	// Broadcast sends message to all connected users except user who sent message
+ 	socket.broadcast.emit('newMessage', {
+			from: 'Admin',
+			text: 'Darko has connected',
+			createdAt: new Date().getTime()
+		})
+
 	socket.on('createMessage', (newMessage) => {
-		console.log('createMessage: ',newMessage)
+		console.log('createMessage: ', newMessage);
+		
+		/*  io.emit sends message to all users */
+		io.emit('newMessage', {
+			from: newMessage.from,
+			text: newMessage.text,
+			createdAt: new Date().getTime()
+		})
+		
+		// Broadcast sends message to all connected users except user who sent message
+		/*
+		socket.broadcast.emit('newMessage', {
+			from: newMessage.from,
+			text: newMessage.text,
+			createdAt: new Date().getTime()
+		})
+		*/
 	})
 
 	socket.on('disconnect', (socket)=>{
