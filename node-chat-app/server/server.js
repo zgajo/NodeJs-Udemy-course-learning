@@ -27,7 +27,7 @@ io.on('connection', (socket)=>{
 		/*  io.emit sends message to all users */
 		io.emit('newMessage', generateMessage(newMessage.from, newMessage.text))
 		//socket.broadcast.emit('newMessage', generateMessage(newMessage.from, newMessage.text))
-		callback('This is from server, messsage succesfuly sent');
+		callback();
 	})
 
 	socket.on('createLocationMsg', (coords)=>{
