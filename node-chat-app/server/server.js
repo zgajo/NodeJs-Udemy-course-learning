@@ -3,6 +3,7 @@ const http = require('http')
 const express = require('express')
 const socketIO = require('socket.io')
 
+const {generateMessage} = require('./utils/message')
 const publicPath = path.join(__dirname, '../public');
 let port = process.env.PORT || 3000;
 
@@ -15,36 +16,18 @@ app.use(express.static(publicPath))
 io.on('connection', (socket)=>{
 	
 	// Socket.emit sends to specific user
-	socket.emit('newMessage', {
-		from: 'Admin',
-		text: 'Welcome to chat app'
-	})
+	socket.emit('newMessage', generateMessage('Admin', 'Welcome to chat app'))
 
 	// Broadcast sends message to all connected users except user who sent message
- 	socket.broadcast.emit('newMessage', {
-			from: 'Admin',
-			text: 'Darko has connected',
-			createdAt: new Date().getTime()
-		})
+ 	socket.broadcast.emit('newMessage', generateMessage('Admin', 'New user joined'))
 
-	socket.on('createMessage', (newMessage) => {
+	socket.on('createMessage', (newMessage, callback) => {
 		console.log('createMessage: ', newMessage);
 		
 		/*  io.emit sends message to all users */
-		io.emit('newMessage', {
-			from: newMessage.from,
-			text: newMessage.text,
-			createdAt: new Date().getTime()
-		})
-		
-		// Broadcast sends message to all connected users except user who sent message
-		/*
-		socket.broadcast.emit('newMessage', {
-			from: newMessage.from,
-			text: newMessage.text,
-			createdAt: new Date().getTime()
-		})
-		*/
+		//io.emit('newMessage', generateMessage(newMessage.from, newMessage.text))
+		socket.broadcast.emit('newMessage', generateMessage(newMessage.from, newMessage.text))
+		callback('This is from server, messsage succesfuly sent');
 	})
 
 	socket.on('disconnect', (socket)=>{
@@ -57,3 +40,13 @@ io.on('connection', (socket)=>{
 server.listen( port, () => {
 	console.log('Server started at port: ' + port)
 })
+
+
+// Broadcast sends message to all connected users except user who sent message
+		/*
+		socket.broadcast.emit('newMessage', {
+			from: newMessage.from,
+			text: newMessage.text,
+			createdAt: new Date().getTime()
+		})
+		*/
