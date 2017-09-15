@@ -11,6 +11,7 @@ socket.on('disconnect', function(){
 })
 
 socket.on('newMessage', function(msg){
+
 	console.log('New message: ', msg)
 	addReceivedMsg(msg)
 	//alert(`From: ${msg.from} \nText: ${msg.text}`)
@@ -19,8 +20,8 @@ socket.on('newMessage', function(msg){
 socket.on('newLocationMessage', function(msg) {
 	let li = $(`<li  class="list-group-item"></li>`);
 	let a = $('<a target="_blank">My current location </a>')
-
-	li.text(`${msg.from} `)
+msg.createdAt = moment(msg.createdAt).format('HH:mm')
+	li.text(`${msg.from}  ${msg.createdAt} : `)
 	a.attr('href', msg.url)
 	li.append(a)
 	$('#msgFromServer').append(li)
@@ -41,9 +42,9 @@ $('#message-form').on('submit', function(e){
 })
 
 function addReceivedMsg(msg){
-
+	msg.createdAt = moment(msg.createdAt).format('HH:mm')
 	let li = $(`<li  class="list-group-item"></li>`);
-	if(msg.from) li.text(`${msg.from}: ${msg.text}`)
+	if(msg.from) li.text(`${msg.from} ${msg.createdAt}: ${msg.text}`)
 	else  li.text(`${msg}`)
 
 	$('#msgFromServer').append(li)
