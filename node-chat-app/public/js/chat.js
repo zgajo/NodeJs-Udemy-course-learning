@@ -1,9 +1,17 @@
 let socket = io();
 
 socket.on('connect', function(){
-	console.log('Connected to server')
+	var params = $.deparam(window.location.search)
 
-
+	socket.emit('join', params, function(err){
+		if(err){
+			alert(err)
+			window.location.href = '/'
+		}
+		else{
+			console.log('No error')
+		}
+	})
 })
 
 socket.on('disconnect', function(){
@@ -12,6 +20,7 @@ socket.on('disconnect', function(){
 
 socket.on('newMessage', function(msg){
 	let formattedTime = moment(msg.createdAt).format('HH:mm')
+	console.log(msg)
 	let template = $('#message-template').html()
 	let html = Mustache.render(template, {
 		text: msg.text,

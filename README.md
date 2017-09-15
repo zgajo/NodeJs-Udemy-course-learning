@@ -25,4 +25,6 @@ Destroying token, made tests<br>
 Using Socket.io, creating 'emit' and 'on' events<br>
 Sending messages to all users, specific user, or all users except the one who is sending msg<br>
 Added test<br>
-Sending geolocation back and forth<br>0912
+Sending geolocation back and forth<br>
+Joining rooms inside Socket.io, alerting other users
+0920
